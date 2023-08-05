@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Service
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("UpdateService", "Service", FormMethod.Post))@* İlk alınan parametre actionın ismi ikinci parametre controller ismi FormMethodun türü*@
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description" style="color:white; font-size:40px;">Hizmet Güncelleme Paneli</p>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x => x.ServiceID)
+                    <br />
+                    <br />
+                    <br />
+                    @Html.Label("Hizmet Başlığı")
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    <br />
+                    <br />
+                    @Html.Label("Resim Yolu")
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    <br />
+                    <br />
+                    <button class="btn btn-outline-success">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+

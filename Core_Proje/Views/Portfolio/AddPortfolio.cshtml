@@ -1,0 +1,53 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))@* İlk alınan parametre actionın ismi ikinci parametre controller ismi FormMethodun türü*@
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description" style="color:white; font-size:40px;">Yeni Proje Ekleme Paneli</p>
+                <form class="forms-sample">
+                    <br />
+                    <br />
+                    @Html.Label("Proje Başlığı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                    <br />
+                    @Html.Label("Görsel 1")
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl)
+                    <br />
+                    <br />
+                    @Html.Label("Görsel 2")
+                    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl2)
+                    <br />
+                    <br />
+                    @Html.Label("Proje URL")
+                    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ProjectUrl)
+                    <br />
+                    <br />
+                    @Html.Label("Fiyat")
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Price)
+                    <br />
+                    <br />
+                    @Html.Label("Proje Süreci")
+                    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Value)
+                    <br />
+                    <br />
+                    <button class="btn btn-info" style="font-size:20px;">Kaydet</button>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+}

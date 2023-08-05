@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Feature
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Öne Çıkanları Düzenleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("Index", "Feature", FormMethod.Post))@* İlk alınan parametre actionın ismi ikinci parametre controller ismi FormMethodun türü*@
+{
+
+    @Html.HiddenFor(x => x.FeatureID);
+    <br />
+    <br />
+    @Html.Label("Giriş Başlığı Girin (Ör: Merhaba)")
+    @Html.TextBoxFor(x => x.Header, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.Header)
+    //burada textboxfor u yazmamızın sebebi güncelleme sayfasına gittiğimizde güncelleme sayfasındaki güncelleme texti hazır dolu halde oluyor.
+    <br />
+    <br />
+    @Html.Label("Ad Soyad Girin (Ör: Ben AA BB)")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name)
+    <br />
+    <br />
+    @Html.Label("Meslek Bilginizi Girin")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title)
+    <br />
+    <br />
+    <button class="btn btn-success">Düzenle</button>
+}
